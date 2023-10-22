@@ -1,11 +1,17 @@
 package com.example.roomapp.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface UserDao {
 
-    fun addUser(user:User){
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addUser(user:User)
+    @Query("SELECT * FROM user_data ORDER BY id ASC")
+    fun readAllUser():LiveData<List<User>>
 
-    }
 }
