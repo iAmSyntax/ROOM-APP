@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.roomapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.roomapp"
@@ -31,11 +31,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        // sourceCompatibility = JavaVersion.VERSION_1_8
+        // targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        // jvmTarget = "1.8"
+        jvmTarget = "17"
+
     }
     buildFeatures {
         compose = true
@@ -51,6 +55,7 @@ android {
 }
 
 dependencies {
+    val nav_version = "2.7.4"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -68,11 +73,13 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-   // kapt("groupId:artifactId:version")
+    // kapt("groupId:artifactId:version")
 
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
 
     // Room components
     implementation("androidx.room:room-runtime:2.6.0")

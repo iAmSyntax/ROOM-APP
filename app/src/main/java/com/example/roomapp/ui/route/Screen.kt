@@ -1,4 +1,7 @@
 package com.example.roomapp.ui.route
 
-class Screen {
+sealed class Screen(val route:String) {
+    object Home:Screen("home_screen")
+    object EnterDetails:Screen("details_screen")
+
 }
