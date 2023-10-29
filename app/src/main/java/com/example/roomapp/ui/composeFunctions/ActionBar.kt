@@ -65,7 +65,11 @@ fun EnterDetailsBar(navController: NavController){
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        navController.navigate(route = Screen.Home.route)
+                        navController.navigate(route = Screen.Home.route){
+                            popUpTo(Screen.Home.route){
+                                inclusive = true
+                            }
+                        }
                     }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
