@@ -18,7 +18,7 @@ abstract class UserDatabase : RoomDatabase() {
         fun getDatabase(context: Context): UserDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
-                return tempInstance;
+                return tempInstance
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -28,7 +28,7 @@ abstract class UserDatabase : RoomDatabase() {
                 ).build()
                 INSTANCE =
                     instance // use singleton , a single instance of database is very efficient
-                return instance;
+                return instance
             }
         }
     }
