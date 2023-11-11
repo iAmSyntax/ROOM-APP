@@ -25,24 +25,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.roomapp.data.User
+import com.example.roomapp.data.UserViewModel
 import com.example.roomapp.ui.composeFunctions.EnterDetailsBar
 
 
-fun areAllEmptyOrZero(
+
+
+fun insertDataIntoDb(
     firstName: String,
     lastName: String,
     position: String,
     age: Int,
-    rating: Int
-): Boolean {
-    return firstName.isEmpty() && lastName.isEmpty() && position.isEmpty() && age == 0 && rating == 0
-}
-
-fun insertDataIntoDb(firstName: String, lastName: String, position: String, age: Int, rating: Int) {
+    rating: Int,
+    userViewModel: UserViewModel
+) {
     val user = User(0, firstName, lastName, age, position, rating)
-
+    userViewModel.addUser(user)
     Log.i("Tag", "Insertion done")
 }
 
@@ -83,11 +84,9 @@ fun NumberTextField(labelName: String, numVar: Int, onValueChange: (Int) -> Unit
 }
 
 
-
-
-
 @Composable
 fun EnterDetailsScreen(navController: NavController) {
+    val userViewModel: UserViewModel = viewModel()
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var position by remember { mutableStateOf("") }
@@ -110,14 +109,20 @@ fun EnterDetailsScreen(navController: NavController) {
         ) {
             // The it keyword is used as a default name for the single parameter of the lambda function.
             // In this context, it refers to the new text value that is passed as a parameter to the lambda function
-            TextField("First Name", firstName){newValue->firstName=newValue}
-            TextField("Last Name", lastName){ newValue -> lastName = newValue }
-            NumberTextField(labelName = "Age", numVar = age, onValueChange = { newValue -> age = newValue })
-            TextField("Position", position){ newValue -> position = newValue }
-            NumberTextField(labelName = "Rating", numVar = rating, onValueChange = { newValue -> rating = newValue })
+            TextField("First Name", firstName) { newValue -> firstName = newValue }
+            TextField("Last Name", lastName) { newValue -> lastName = newValue }
+            NumberTextField(
+                labelName = "Age",
+                numVar = age,
+                onValueChange = { newValue -> age = newValue })
+            TextField("Position", position) { newValue -> position = newValue }
+            NumberTextField(
+                labelName = "Rating",
+                numVar = rating,
+                onValueChange = { newValue -> rating = newValue })
             AddDataBtn {
                 if (firstName.isNotBlank() && lastName.isNotBlank() && position.isNotBlank() && age > 0 && rating > 0) {
-                    //insertDataIntoDb(firstName,lastName,position,age,rating)
+                    insertDataIntoDb(firstName, lastName, position, age, rating, userViewModel)
 
                     Log.w("Tag", "its not empty")
                 } else {
