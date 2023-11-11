@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.example.roomapp.ui.composeFunctions.CustomFloatingActionButton
 import com.example.roomapp.ui.composeFunctions.RoomAppBar
+import com.example.roomapp.ui.composeFunctions.UserDetailsCard
 import com.example.roomapp.ui.route.Screen
 
 @Composable
@@ -19,6 +20,7 @@ fun HomeScreen(navController: NavController) {
             .fillMaxSize()
     ) {
         RoomAppBar()
+        UserDetailsCard()
         CustomFloatingActionButton(
             onClick = {
                 // Handle button click

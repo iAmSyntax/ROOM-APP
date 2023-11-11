@@ -31,9 +31,6 @@ import com.example.roomapp.data.User
 import com.example.roomapp.data.UserViewModel
 import com.example.roomapp.ui.composeFunctions.EnterDetailsBar
 
-
-
-
 fun insertDataIntoDb(
     firstName: String,
     lastName: String,
