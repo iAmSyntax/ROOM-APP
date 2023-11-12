@@ -13,6 +13,7 @@ import com.example.roomapp.ui.screens.UpdateDetailsScreen
 fun SetupNavGraph(
     navController: NavHostController
 ) {
+
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route
@@ -27,6 +28,8 @@ fun SetupNavGraph(
             UpdateDetailsScreen(navController = navController)
         }
 
+
     }
 
 }
+
