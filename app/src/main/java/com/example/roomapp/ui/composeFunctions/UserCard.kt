@@ -43,7 +43,7 @@ fun UserDetailsCard(user: User) {
             .fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(4.dp)
         ) {
 
             Text("ID: ${user.id}")
