@@ -23,7 +23,7 @@ fun HomeScreen(navController: NavController) {
             .fillMaxSize()
     ) {
         RoomAppBar()
-        UserDetailsList(userViewModel = userViewModel)
+        UserDetailsList(userViewModel = userViewModel,navController=navController)
         CustomFloatingActionButton(
             onClick = {
                 // Handle button click
