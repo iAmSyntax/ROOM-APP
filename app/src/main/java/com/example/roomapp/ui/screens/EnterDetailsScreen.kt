@@ -29,7 +29,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.roomapp.data.User
 import com.example.roomapp.data.UserViewModel
-import com.example.roomapp.ui.composeFunctions.EnterDetailsBar
+import com.example.roomapp.ui.composeFunctions.TopActionBar
 
 fun insertDataIntoDb(
     firstName: String,
@@ -95,7 +95,7 @@ fun EnterDetailsScreen(navController: NavController) {
             .fillMaxSize()
             .background(Color.White)
     ) {
-        EnterDetailsBar(navController)
+        TopActionBar(navController,"Enter Details")
         Column(
             modifier = Modifier
                 .fillMaxSize()
