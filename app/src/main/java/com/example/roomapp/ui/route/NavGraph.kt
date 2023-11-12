@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.roomapp.ui.screens.EnterDetailsScreen
 import com.example.roomapp.ui.screens.HomeScreen
+import com.example.roomapp.ui.screens.UpdateDetailsScreen
 
 
 @Composable
@@ -22,6 +23,10 @@ fun SetupNavGraph(
         composable(route=Screen.EnterDetails.route){
             EnterDetailsScreen(navController=navController)
         }
+        composable(route=Screen.UpdateDetails.route){
+            UpdateDetailsScreen(navController = navController)
+        }
+
     }
 
 }
