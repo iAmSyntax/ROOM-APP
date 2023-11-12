@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<User>>
+    val readAllData: LiveData<List<User>>
     private val repository: UserRepository
 
     init {
@@ -20,7 +20,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) { // bad practice to launch db jobs in main threads , always best to do it in background threads
-            repository.addUser(user);
+            repository.addUser(user)
         }
     }
 
