@@ -55,7 +55,9 @@ android {
 }
 
 dependencies {
-    val nav_version = "2.7.4"
+    val nav_version = "2.7.5"
+    val lifecycle_version = "2.6.2"
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -76,8 +78,8 @@ dependencies {
     // kapt("groupId:artifactId:version")
 
     // Navigation Component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
 
@@ -91,11 +93,17 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-common-java8:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    //LiveData
+    implementation("androidx.compose.runtime:runtime:1.5.4")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
 
     // Kotlin components
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
 
 }
