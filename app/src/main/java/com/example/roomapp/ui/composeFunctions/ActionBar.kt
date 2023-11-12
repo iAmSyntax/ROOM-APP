@@ -52,7 +52,7 @@ fun RoomAppBar() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EnterDetailsBar(navController: NavController){
+fun TopActionBar(navController: NavController,actionBarName:String){
     Scaffold(
         topBar = {
             TopAppBar(
@@ -61,7 +61,7 @@ fun EnterDetailsBar(navController: NavController){
                     titleContentColor = Color.Black,
                 ),
                 title = {
-                    Text("Enter Details")
+                    Text(actionBarName)
                 },
                 navigationIcon = {
                     IconButton(onClick = {
