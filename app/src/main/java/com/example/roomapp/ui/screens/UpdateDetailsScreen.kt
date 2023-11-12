@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -21,9 +23,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.roomapp.ui.composeFunctions.TopActionBar
 
+@Composable
+fun UpdateDataBtn(onClick: () -> Unit) {
+    Button(onClick = { onClick() }) {
+        Text("Update Data")
+    }
+}
 
 @Composable
-fun UpdateDetailsScreen(navController: NavController){
+fun UpdateDetailsScreen(navController: NavController) {
+
+
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var position by remember { mutableStateOf("") }
@@ -57,10 +67,13 @@ fun UpdateDetailsScreen(navController: NavController){
                 labelName = "Rating",
                 numVar = rating,
                 onValueChange = { newValue -> rating = newValue })
-            }
+            UpdateDataBtn {
 
+            }
         }
+
     }
+}
 
 
 
