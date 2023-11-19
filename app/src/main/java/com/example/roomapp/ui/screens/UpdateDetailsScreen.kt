@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.roomapp.ui.composeFunctions.TopActionBar
+import com.example.roomapp.ui.route.SharedViewModel
 
 @Composable
 fun UpdateDataBtn(onClick: () -> Unit) {
@@ -31,14 +32,15 @@ fun UpdateDataBtn(onClick: () -> Unit) {
 }
 
 @Composable
-fun UpdateDetailsScreen(navController: NavController) {
+fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedViewModel) {
+    val userShared = sharedViewModel.userShared
 
 
-    var firstName by remember { mutableStateOf("") }
-    var lastName by remember { mutableStateOf("") }
-    var position by remember { mutableStateOf("") }
-    var age by remember { mutableIntStateOf(0) }
-    var rating by remember { mutableIntStateOf(0) }
+    var firstName by remember { mutableStateOf(userShared?.firstName.orEmpty()) }
+    var lastName by remember { mutableStateOf(userShared?.lastName.orEmpty()) }
+    var position by remember { mutableStateOf(userShared?.position.orEmpty()) }
+    var age by remember { mutableIntStateOf(userShared?.age ?: 0) }
+    var rating by remember { mutableIntStateOf(userShared?.rating ?: 0) }
 
     Box(
         modifier = Modifier
