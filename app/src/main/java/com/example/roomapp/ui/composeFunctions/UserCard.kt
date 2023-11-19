@@ -18,23 +18,24 @@ import androidx.navigation.NavController
 import com.example.roomapp.data.User
 import com.example.roomapp.data.UserViewModel
 import com.example.roomapp.ui.route.Screen
+import com.example.roomapp.ui.route.SharedViewModel
 
 @Composable
-fun UserDetailsList(userViewModel: UserViewModel, navController: NavController) {
+fun UserDetailsList(userViewModel: UserViewModel, navController: NavController,sharedViewModel: SharedViewModel) {
     val userData: List<User> by userViewModel.readAllData.observeAsState(listOf())
 
     LazyColumn(
         modifier = Modifier.padding(8.dp)
     ) {
         items(userData.size) { index ->
-            UserDetailsCard(user = userData[index],navController)
+            UserDetailsCard(user = userData[index], navController,sharedViewModel)
             Spacer(modifier = Modifier.height(16.dp)) // Add space between cards
         }
     }
 }
 
 @Composable
-fun UserDetailsCard(user: User,navController: NavController) {
+fun UserDetailsCard(user: User, navController: NavController,sharedViewModel: SharedViewModel) {
     Card(
         modifier = Modifier
             .padding(
@@ -45,10 +46,8 @@ fun UserDetailsCard(user: User,navController: NavController) {
             ) // Adjust the top padding as needed
             .fillMaxWidth()
             .clickable {
-                navController.navigate(route = Screen.UpdateDetails.route){
-
-                    navController.navigate(route = Screen.UpdateDetails.route)
-                }
+                sharedViewModel.addUserShared(user)
+                navController.navigate(Screen.UpdateDetails.route)
             }
     ) {
         Column(
