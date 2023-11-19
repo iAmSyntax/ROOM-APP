@@ -20,7 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.roomapp.data.User
+import com.example.roomapp.data.UserViewModel
 import com.example.roomapp.ui.composeFunctions.TopActionBar
 import com.example.roomapp.ui.route.SharedViewModel
 
@@ -34,6 +37,7 @@ fun UpdateDataBtn(onClick: () -> Unit) {
 @Composable
 fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedViewModel) {
     val userShared = sharedViewModel.userShared
+    val userViewModel: UserViewModel = viewModel()
 
 
     var firstName by remember { mutableStateOf(userShared?.firstName.orEmpty()) }
@@ -70,7 +74,11 @@ fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedView
                 numVar = rating,
                 onValueChange = { newValue -> rating = newValue })
             UpdateDataBtn {
-
+                        val updatedUser=
+                            userShared?.id?.let { User(it,firstName,lastName, age,position,rating) }
+                if (updatedUser != null) {
+                    userViewModel.updateUser(updatedUser)
+                }
             }
         }
 
