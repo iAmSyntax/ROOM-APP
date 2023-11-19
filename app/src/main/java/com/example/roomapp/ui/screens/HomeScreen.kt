@@ -13,9 +13,10 @@ import com.example.roomapp.ui.composeFunctions.CustomFloatingActionButton
 import com.example.roomapp.ui.composeFunctions.RoomAppBar
 import com.example.roomapp.ui.composeFunctions.UserDetailsList
 import com.example.roomapp.ui.route.Screen
+import com.example.roomapp.ui.route.SharedViewModel
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController,sharedViewModel: SharedViewModel) {
     val userViewModel:UserViewModel = viewModel()
     Box(
         modifier = Modifier
@@ -23,7 +24,7 @@ fun HomeScreen(navController: NavController) {
             .fillMaxSize()
     ) {
         RoomAppBar()
-        UserDetailsList(userViewModel = userViewModel,navController=navController)
+        UserDetailsList(userViewModel = userViewModel,navController=navController,sharedViewModel=sharedViewModel)
         CustomFloatingActionButton(
             onClick = {
                 // Handle button click
