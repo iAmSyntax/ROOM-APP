@@ -41,7 +41,6 @@ The project relies on the following key dependencies:
 - **Kotlin Coroutines:** 1.7.1
 - **Lifecycle Components:** 2.6.2
 
-For a comprehensive list of dependencies, refer to the [build.gradle](app/build.gradle) file.
 
 ## Contribution 🤝
 
