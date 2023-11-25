@@ -15,6 +15,7 @@ import com.example.roomapp.ui.composeFunctions.UserDetailsList
 import com.example.roomapp.ui.route.Screen
 import com.example.roomapp.ui.route.SharedViewModel
 
+
 @Composable
 fun HomeScreen(navController: NavController,sharedViewModel: SharedViewModel) {
     val userViewModel:UserViewModel = viewModel()
