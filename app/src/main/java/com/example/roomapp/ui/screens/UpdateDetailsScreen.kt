@@ -35,7 +35,19 @@ fun UpdateDataBtn(onClick: () -> Unit) {
 }
 
 @Composable
-fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedViewModel) {
+fun DeleteDataBtn(onClick: () -> Unit) {
+    Button(onClick = { onClick() }) {
+        Text("Delete Data")
+    }
+}
+@Composable
+fun DeleteAllDataBtn(onClick: () -> Unit) {
+    Button(onClick = { onClick() }) {
+        Text("Delete All Data")
+    }
+}
+@Composable
+fun UpdateDetailsScreen(navController: NavController, sharedViewModel: SharedViewModel) {
     val userShared = sharedViewModel.userShared
     val userViewModel: UserViewModel = viewModel()
 
@@ -51,7 +63,7 @@ fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedView
             .fillMaxSize()
             .background(Color.White)
     ) {
-        TopActionBar(navController = navController, actionBarName = "Update Details")
+        TopActionBar(navController = navController, actionBarName = "Update/Delete Details")
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -74,11 +86,18 @@ fun UpdateDetailsScreen(navController: NavController,sharedViewModel: SharedView
                 numVar = rating,
                 onValueChange = { newValue -> rating = newValue })
             UpdateDataBtn {
-                        val updatedUser=
-                            userShared?.id?.let { User(it,firstName,lastName, age,position,rating) }
-                if (updatedUser != null) {
-                    userViewModel.updateUser(updatedUser)
-                }
+                val updatedUser =
+                    userShared?.id?.let { User(it, firstName, lastName, age, position, rating) }
+                if (updatedUser != null) userViewModel.updateUser(updatedUser)
+            }
+            DeleteDataBtn {
+                val delUser =
+                    userShared?.id?.let { User(it, firstName, lastName, age, position, rating) }
+                if (delUser != null) userViewModel.deleteUser(delUser)
+            }
+            DeleteAllDataBtn {
+                userViewModel.deleteAllUser()
+                userViewModel.resestPrimaryKey()
             }
         }
 
