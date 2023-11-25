@@ -24,7 +24,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone [https://github.com/iAmSyntax/RoomApp.git](https://github.com/iAmSyntax/ROOM-APP-CRUD.git)
+   git clone https://github.com/iAmSyntax/ROOM-APP-CRUD.git
    ```
 
 2. **Open the project in Android Studio.**
