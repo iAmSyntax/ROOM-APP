@@ -31,13 +31,6 @@ To run this project locally, follow these steps:
 
 3. **Build and run the application on an emulator or physical device.**
 
-## Project Structure 🏗
-
-- **app:** 📁 Contains the main source code for the Android application.
-  - **src/main:** 📂 Houses the core components of the app, including activities, fragments, and the Room Database setup.
-  - **src/androidTest:** 🧪 Includes test cases for the Android-specific components.
-  - **src/test:** 🧪 Encompasses unit tests for non-Android-specific code.
-
 ## Dependencies 📦
 
 The project relies on the following key dependencies:
