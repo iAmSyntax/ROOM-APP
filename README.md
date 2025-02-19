@@ -41,6 +41,9 @@ The project relies on the following key dependencies:
 - **Kotlin Coroutines:** 1.7.1
 - **Lifecycle Components:** 2.6.2
 
+## Demonstration
+- A video showcasing the app functionality :- https://drive.google.com/file/d/1cmro6vI9Ue8CcnoK9S2XUXXU0KHuBxdv/view?usp=sharing
+
 
 ## Contribution 🤝
 
